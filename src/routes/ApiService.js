@@ -1,6 +1,6 @@
 export default class ApiService{
     static LoginUser(body){
-        return fetch("http://127.0.0.1:8000/auth",{
+        return fetch("https://pisurv.herokuapp.com/auth",{
             method:'POST',
             headers: {
                 'Content-Type':"application/json"
@@ -10,7 +10,7 @@ export default class ApiService{
     }
 
     static LogoutUser(){
-        return fetch("http://127.0.0.1:8000/company/logout",{
+        return fetch("https://pisurv.herokuapp.com/company/logout",{
             method:'POST',
             headers: {
                 'Content-Type':"application/json"
@@ -19,7 +19,7 @@ export default class ApiService{
     }
 
     static RegisterUser(body){
-        return fetch("http://127.0.0.1:8000/company/register/",{
+        return fetch("https://pisurv.herokuapp.com/company/register/",{
             method:'POST',
             headers: {
                 'Content-Type':"application/json"
@@ -29,7 +29,7 @@ export default class ApiService{
     }
 
     static PostSurveyData(body,token){
-        return fetch("http://127.0.0.1:8000/company/available-survey/",{
+        return fetch("https://pisurv.herokuapp.com/company/available-survey/",{
             method:'POST',
             headers: {
                 'Content-Type':"application/json",
@@ -40,7 +40,7 @@ export default class ApiService{
     }
 
     static FetchSurveyData(token){
-        return fetch("http://127.0.0.1:8000/company/company-list/",{
+        return fetch("https://pisurv.herokuapp.com/company/company-list/",{
             method:'GET',
             headers: {
                 'Content-Type':"application/json",
@@ -50,7 +50,7 @@ export default class ApiService{
         }).then(resp => resp.json())
     }
     static FetchHistoryData(token){
-        return fetch("http://127.0.0.1:8000/company/history/",{
+        return fetch("https://pisurv.herokuapp.com/company/history/",{
             method:'GET',
             headers: {
                 'Content-Type':"application/json",
@@ -61,7 +61,7 @@ export default class ApiService{
     }
 
     static FetchAllSurvey(token){
-        return fetch("http://127.0.0.1:8000/company/available-survey/",{
+        return fetch("https://pisurv.herokuapp.com/company/available-survey/",{
             method:'GET',
             headers: {
                 'Content-Type':"application/json",
@@ -71,7 +71,7 @@ export default class ApiService{
         }).then(resp => resp.json())
     }
     static SubmitAnswer(body,token,id){
-        return fetch(`http://127.0.0.1:8000/company/available-survey/${id}/submit_answers/`,{
+        return fetch(`https://pisurv.herokuapp.com/company/available-survey/${id}/submit_answers/`,{
             method:'POST',
             headers: {
                 'Content-Type':"application/json",
