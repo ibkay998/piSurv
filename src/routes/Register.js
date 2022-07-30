@@ -34,7 +34,7 @@ function Register() {
             <div class="max-w-6xl mx-auto">
                 <div class="flex items-center lg:justify-between justify-around">
                     <a href="trending.html">
-                        <b><h1>Social Book</h1></b>
+                        <b><h1>Pisurv</h1></b>
                     </a>
                     <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
                         <a href="/login" class="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white">Login</a>
@@ -48,7 +48,7 @@ function Register() {
         <div>
             <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
                 <h1 class="lg:text-3xl text-xl font-semibold mb-6"> Sign Up</h1>
-                <p class="mb-2 text-black text-lg"> Register to manage your account </p>
+                <p class="mb-2 text-black text-lg"> Register </p>
                 
 
                 <div id ="message_container"> 
