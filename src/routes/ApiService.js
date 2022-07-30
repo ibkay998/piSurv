@@ -21,6 +21,7 @@ export default class ApiService{
     static RegisterUser(body){
         return fetch("https://pisurv.herokuapp.com/company/register/",{
             method:'POST',
+            mode:'cors',
             headers: {
                 'Content-Type':"application/json"
             },
