@@ -84,7 +84,7 @@ function CreateForm(props) {
     useEffect(() => {
       function data_adding() {
         axios
-          .get(`http://127.0.0.1:8000/company/company-list/${id}/`, { 
+          .get(`https://pisurv.herokuapp.com/company/company-list/${id}/`, { 
 
             headers: {
               "Content-Type": "application/json",
