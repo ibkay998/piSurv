@@ -21,7 +21,7 @@ function Login() {
         .catch(err => console.log(err))
     }
   return (
-    <div id="wrapper" class="flex flex-col justify-between h-screen bg-white">
+    <div id="wrapper" class="flex flex-col justify-between bg-white">
 
     <div class="bg-white py-4 shadow dark:bg-gray-800">
         <div class="max-w-6xl mx-auto">
@@ -44,7 +44,7 @@ function Login() {
 
    
     <div>
-        <div className="lg:p-12 max-w-md  lg:my-0 my-12 mx-auto p-6 text-black">
+        <div className="lg:p-12 max-w-md  lg:my-0 my-12 mx-auto p-6 text-black bg-fuchsia-900">
             <h1 className="lg:text-3xl text-xl font-semibold  mb-6 "> Log in</h1>
                 <input type="text" name="username" placeholder="Username" value={username}  onChange={e => setUsername(e.target.value)} className="bg-gray-200 mb-2 shadow-none dark:bg-gray-800 border-2 border-solid" />
                 <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-gray-200 mb-2 shadow-none dark:bg-gray-800 border-2 border-solid"/>
@@ -75,7 +75,7 @@ function Login() {
                 <a href="/"> Terms</a>
                 <a href="/"> Privacy</a>
             </div>
-            <p class="capitalize"> © copyright 2020 by socol</p>
+            <p class="capitalize"> © copyright 2022 by ibkay</p>
         </div>
     </div>
 
