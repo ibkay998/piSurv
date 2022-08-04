@@ -5,8 +5,8 @@ import Footer from './Footer'
 import "./home.css"
 function Home() {
   return (
-    <div>
-      <div className='home bg-gradient-to-b w-[75%] m-auto'>
+    <div className="home">
+      <div className='bg-gradient-to-b w-[75%] m-auto'>
         <SliderHeader/>
         <MainBody/>
       </div>
