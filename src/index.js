@@ -21,6 +21,7 @@ import ListSurveyComponent from "./components/ListSurvey"
 import IndividualSurveyComponent from './components/IndividualSurveyComponent';
 import UserForm from './routes/UserForm'
 import History from './routes/History'
+import Home from './routes/Home'
 
 
 
@@ -29,7 +30,8 @@ function Router (){
     <CookiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route path = "/" element={<Login/>}/>
+          <Route path = "/" element={<Home/>}/>
+          <Route path = "/login" element={<Login/>}/>
           <Route path = "/register" element={<Register/>}/>
           <Route path = "/company/*" element={<App/>}>
             <Route path="overview" element = {<CreateSurveyComponent/>}/>

@@ -30,7 +30,7 @@ function Login() {
             <div class="flex items-center lg:justify-between justify-around">
 
                 <a href="trending.html">
-                   <b><h1 className='text-2xl'>Pisurv</h1></b>
+                   <p className="text-black font-medium ">PISURV</p>
                 </a>
 
                 <div class="capitalize flex font-semibold lg:block my-2 space-x-3 text-center text-sm">
@@ -44,21 +44,20 @@ function Login() {
 
    
     <div>
-        <div class="lg:p-12 max-w-md  lg:my-0 my-12 mx-auto p-6 space-y-">
-            <h1 class="lg:text-3xl text-xl font-semibold  mb-6"> Log in</h1>
-
-                <input type="text" name="username" placeholder="Username" value={username}  onChange={e => setUsername(e.target.value)} class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" className="border "/>
-                <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" className="border "/>
-              <div class="flex justify-between my-4">
-                    <div class="checkbox">
+        <div className="lg:p-12 max-w-md  lg:my-0 my-12 mx-auto p-6 text-black">
+            <h1 className="lg:text-3xl text-xl font-semibold  mb-6 "> Log in</h1>
+                <input type="text" name="username" placeholder="Username" value={username}  onChange={e => setUsername(e.target.value)} className="bg-gray-200 mb-2 shadow-none dark:bg-gray-800 border-2 border-solid" />
+                <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-gray-200 mb-2 shadow-none dark:bg-gray-800 border-2 border-solid"/>
+              <div className="flex justify-between my-4">
+                    <div className="checkbox text-black">
                         <input type="checkbox" id="chekcbox1" checked/>
                         <label for="chekcbox1"><span class="checkbox-icon"></span>Remember Me</label>
                     </div>
                     <a href="/"> Forgot Your Password? </a>
                 </div> 
-                <button onClick={loginBtn} class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login</button>
-                <div class="text-center mt-5 space-x-2">
-                    <p class="text-base"> Not registered? <a href="/register" class=""> Create a account </a></p>
+                <button onClick={loginBtn} className="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login</button>
+                <div className="text-center mt-5 space-x-2">
+                    <p className="text-base"> Not registered? <a href="/register"> Create a account </a></p>
                 </div>
 
 

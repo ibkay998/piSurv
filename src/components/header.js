@@ -29,7 +29,7 @@ function Header(){
                     <span className="text-3xl text-pink-600 mr-1 pt-2">
                         <ion-icon name="logo-ionic"></ion-icon>
                     </span>
-                    Pisurv
+                    <p className="text-black font-medium ">PISURV</p>
                 </div>
                 <div onClick={()=>setOpen(!open)} className="3xl absolute right-8 top-6 cursor-pointer md:hidden">
                     <ion-icon name={open ? "close":"menu"}></ion-icon>

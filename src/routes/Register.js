@@ -28,16 +28,16 @@ function Register() {
     }
 
   return (
-    <div id="wrapper" class="flex flex-col justify-between h-screen">
+    <div id="wrapper" className="flex flex-col justify-between h-screen text-black">
       
-        <div class="bg-white py-4 shadow dark:bg-gray-800">
-            <div class="max-w-6xl mx-auto">
-                <div class="flex items-center lg:justify-between justify-around">
+        <div className="bg-white py-4 shadow dark:bg-gray-800">
+            <div className="max-w-6xl mx-auto">
+                <div className="flex items-center lg:justify-between justify-around">
                     <a href="trending.html">
-                        <b><h1>Pisurv</h1></b>
+                    <p className="text-black font-medium ">PISURV</p>
                     </a>
-                    <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
-                        <a href="/login" class="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white">Login</a>
+                    <div className="capitalize flex font-semibold  lg:block my-2 space-x-3 text-center text-sm">
+                        <a href="/login" className="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white">Login</a>
                     </div>
                 </div>
             </div>
