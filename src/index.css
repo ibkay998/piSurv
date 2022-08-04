@@ -26,6 +26,7 @@ html {
 }
 
 body {
+  background-image: url("../src/assets/background2.jpg");
   margin: 0;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
