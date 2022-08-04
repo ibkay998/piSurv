@@ -28,7 +28,7 @@ function Register() {
     }
 
   return (
-    <div id="wrapper" className="flex flex-col justify-between h-screen text-black">
+    <div id="wrapper" className="flex flex-col justify-between h-screen text-black bg-white">
       
         <div className="bg-white py-4 shadow dark:bg-gray-800">
             <div className="max-w-6xl mx-auto">
