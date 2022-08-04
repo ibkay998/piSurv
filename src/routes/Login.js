@@ -21,7 +21,7 @@ function Login() {
         .catch(err => console.log(err))
     }
   return (
-    <div id="wrapper" class="flex flex-col justify-between h-screen">
+    <div id="wrapper" class="flex flex-col justify-between h-screen bg-white">
 
     <div class="bg-white py-4 shadow dark:bg-gray-800">
         <div class="max-w-6xl mx-auto">
