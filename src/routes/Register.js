@@ -39,7 +39,7 @@ function Register() {
             <a href='./login' className='p-3 rounded-md text-white bg-fuchsia-500 font-thin flex gap-2 hover:bg-white transition duration-500 hover:text-black'><FiLock/>SignIn</a>  
         </div>
 
-        <div className='container flex items-center flex-col '>
+        <div className='container flex items-center flex-col'>
             <div className='title flex flex-col items-center mt-4'>
                 <p className='text-3xl text-fuchsia-800 font-extrabold'>Pisurv</p>
             </div>

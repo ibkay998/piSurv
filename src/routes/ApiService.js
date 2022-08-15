@@ -1,6 +1,6 @@
 export default class ApiService{
     static LoginUser(body){
-        return fetch("https://pisurv.herokuapp.com/auth",{
+        return fetch("https://pisurv.herokuapp.com/api-token-auth",{
             method:'POST',
             headers: {
                 'Content-Type':"application/json"
