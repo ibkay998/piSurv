@@ -9,7 +9,6 @@ export const actionTypes = {
       SET_QUESTIONS:"SET_QUESTIONS",
       SET_DOC_NAME:"SET_DOC_NAME",
       SET_DOC_DESC:"SET_DOC_DESC"
-      
 }
 
 const reducer = (state=initialState, action)=>{

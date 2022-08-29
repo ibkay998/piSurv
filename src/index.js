@@ -15,13 +15,16 @@ import Wordle2 from './routes/wordle2';
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 import { StateProvider } from './components/StateProvider';
-import reducer, { initialState } from './components/reducer';
+
 import {CookiesProvider} from 'react-cookie'
 import ListSurveyComponent from "./components/ListSurvey"
 import IndividualSurveyComponent from './components/IndividualSurveyComponent';
+import Unauthorized from './components/Unauthorized';
 import UserForm from './routes/UserForm'
 import History from './routes/History'
 import Home from './routes/Home'
+import {AuthProvider} from './context/AuthProvider';
+import RequireAuth from './components/RequireAuth';
 
 
 
@@ -29,27 +32,32 @@ function Router (){
   return(
     <CookiesProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path = "/" element={<Home/>}/>
-          <Route path = "/login" element={<Login/>}/>
-          <Route path = "/register" element={<Register/>}/>
-          <Route path = "/company/*" element={<App/>}>
-            <Route path="overview" element = {<CreateSurveyComponent/>}/>
-            <Route path ="history" element = {<History company={true}/>}/>
-            <Route path="create-survey/:id" element={<CreateForm call={false}/>}/>
-            <Route path ="survey" element={<ListSurveyComponent company={true}/>}/>
-            <Route path=":id" element={<IndividualSurveyComponent/>}/>
-            
-          </Route>
-          <Route  path = "/user" element={<App/>}>
-          <Route path="overview" element = {<CombinedComponent/>}/>
-          <Route path="survey" element = {<ListSurveyComponent company={false}/>}/>
-          <Route path=":id" element={<UserForm/>}/>
-          <Route path="history" element={<History company={false}/>}/>
+        <AuthProvider>
+          <Routes>
+              <Route path = "/" element={<Home/>}/>
+              <Route path="/unauthorized" element={<Unauthorized />}/>
+              <Route path = "/login" element={<Login/>}/>
+              <Route path = "/register" element={<Register/>}/>
 
-          </Route>
-        </Routes>
-      
+              <Route element={<RequireAuth/>}>
+                <Route path = "company/*" element={<App/>}>
+                  <Route path="overview" element = {<CreateSurveyComponent/>}/>
+                  <Route path ="history" element = {<History company={true}/>}/>
+                  <Route path="create-survey/:id" element={<CreateForm call={false}/>}/>
+                  <Route path ="survey" element={<ListSurveyComponent company={true}/>}/>
+                  <Route path=":id" element={<IndividualSurveyComponent/>}/>
+                </Route>
+              </Route>
+              
+              <Route  path = "user" element={<App/>}>
+                <Route path="overview" element = {<CombinedComponent/>}/>
+                <Route path="survey" element = {<ListSurveyComponent company={false}/>}/>
+                <Route path=":id" element={<UserForm/>}/>
+                <Route path="history" element={<History company={false}/>}/>
+              </Route>
+          </Routes>
+        </AuthProvider>
+          
     </BrowserRouter>
     </CookiesProvider>
     

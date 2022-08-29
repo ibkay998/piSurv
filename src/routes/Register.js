@@ -3,19 +3,21 @@ import ApiService from './ApiService'
 import {useCookie, useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
 import {FiLock} from "react-icons/fi"
+import { useStateValue } from "../components/StateProvider";
 
 function Register() {
+    // const [{}, dispatch] = useStateValue();
     const [username , setUsername] = useState("")
     const [password , setPassword] = useState("")
     const [email,setEmail] = useState("")
     const [token,setToken] = useCookies(["mytoken"])
-    let history = useNavigate()
+    // let history = useNavigate()
 
-    useEffect(()=>{
-        if (token["mytoken"]){
-            history("/company/overview")
-        }
-    },[token])
+    // useEffect(()=>{
+    //     if (token["mytoken"]){
+    //         history("/company/overview")
+    //     }
+    // },[token])
 
     const loginBtn = ()=>{
         ApiService.LoginUser({username,password})
@@ -23,10 +25,12 @@ function Register() {
         .catch(err => console.log(err))
     }
 
-    const registerBtn = ()=>{
+    
+
+    const registerBtn = ()=>{   
         ApiService.RegisterUser({username,password})
         .then(resp => loginBtn())
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     }
 
   return (
@@ -54,10 +58,9 @@ function Register() {
                     <input type="text" name="username" placeholder="Username" value={username}  onChange={e => setUsername(e.target.value)} className="bg-white border-2 focus:outline-fuchsia-500 mt-3 p-2"/>
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-white border-2 focus:outline-fuchsia-500 mt-3 p-2"/>
-                    <label>Confirm Password</label>
-                    <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-white border-2 focus:outline-fuchsia-500 mt-3 p-2"/>
                     
-                    <button className='bg-fuchsia-700 p-2 mt-3 mb-3 hover:bg-fuchsia-400 hover:text-black'>Create Account</button>
+                    
+                    <button onClick={registerBtn}  className='bg-fuchsia-700 p-2 mt-3 mb-3 hover:bg-fuchsia-400 hover:text-black'>Create Account</button>
                 </form>
             </div>
         </div>

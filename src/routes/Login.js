@@ -1,13 +1,22 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import ApiService from './ApiService'
-import {useCookie, useCookies} from 'react-cookie'
-import {useNavigate} from 'react-router-dom'
+import {useCookie, useCookies,useLocation} from 'react-cookie'
+import {useNavigate, Navigate} from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
 
-function Login() {
+const Login = () => {
+    const { auth, setAuth } = useAuth();
+    const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || "/";
+    const userRef = useRef();
+    const errRef = useRef();
     const [username , setUsername] = useState("")
     const [password , setPassword] = useState("")
     const [token,setToken] = useCookies(["mytoken"])
+    const [errMsg, setErrMsg] = useState('');
     let history = useNavigate()
+    
 
     useEffect(()=>{
         if (token["mytoken"]){
@@ -15,10 +24,49 @@ function Login() {
         }
     },[token])
 
-    const loginBtn = ()=>{
-        ApiService.LoginUser({username,password})
-        .then(resp => setToken("mytoken",resp.token)).then(resp=>console.log(resp))
-        .catch(err => console.log(err))
+
+    // useEffect(() => {
+    //     userRef.current.focus();
+    // }, [])
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [username, password])
+
+    
+
+    let isStaff = false
+
+    
+    
+
+    const loginBtn = async e => {
+        e.preventDefault();
+        let response = null
+        try{
+            response = await ApiService.LoginUser({username,password});
+            
+        }
+        catch(err){
+            
+
+        }
+        if (response !== null){
+            setAuth({username})
+            console.log(response)
+            setToken("mytoken",response.token)
+
+
+        }
+
+
+        
+        // ApiService.LoginUser({username,password})
+        // .then(resp => setToken("mytoken",resp.token)).then(resp=>console.log(resp)).then(resp => 
+        //     {if(resp.isStaff === true){
+        //         isStaff = true
+        //     }}).then(console.log(isStaff))
+        // .catch(err => console.log(err))
     }
   return (
     <div id="wrapper" class="flex flex-col justify-between bg-white">
@@ -55,7 +103,11 @@ function Login() {
                     </div>
                     <a href="/"> Forgot Your Password? </a>
                 </div> 
-                <button onClick={loginBtn} className="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login</button>
+                <button onClick={loginBtn} className="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login 
+                {auth.username ? <Navigate to="/company/overview"  replace /> : "" }
+                
+                </button>
+                
                 <div className="text-center mt-5 space-x-2">
                     <p className="text-base"> Not registered? <a href="/register"> Create a account </a></p>
                 </div>
