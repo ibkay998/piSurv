@@ -23,23 +23,32 @@ import Unauthorized from './components/Unauthorized';
 import UserForm from './routes/UserForm'
 import History from './routes/History'
 import Home from './routes/Home'
+import Start from './routes/Start'
 import {AuthProvider} from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 
-
+const ROLES = {
+  'User': 2001,
+  'Admin': 5150
+}
 
 function Router (){
   return(
+    <AuthProvider>
     <CookiesProvider>
       <BrowserRouter>
-        <AuthProvider>
           <Routes>
               <Route path = "/" element={<Home/>}/>
-              <Route path="/unauthorized" element={<Unauthorized />}/>
-              <Route path = "/login" element={<Login/>}/>
-              <Route path = "/register" element={<Register/>}/>
+              <Route path = "/*" element={<Start/>}>
+                <Route path = "home" element={<Home/>}/>
+                <Route path = "login" element={<Login/>}/>
+                <Route path = "register" element={<Register/>}/>
+              </Route>
+              <Route path="/unauthorized" element={<Unauthorized/>}/>
+              
+              
 
-              <Route element={<RequireAuth/>}>
+              <Route element={<RequireAuth allowedRoles={true}/>}>
                 <Route path = "company/*" element={<App/>}>
                   <Route path="overview" element = {<CreateSurveyComponent/>}/>
                   <Route path ="history" element = {<History company={true}/>}/>
@@ -49,18 +58,22 @@ function Router (){
                 </Route>
               </Route>
               
-              <Route  path = "user" element={<App/>}>
-                <Route path="overview" element = {<CombinedComponent/>}/>
-                <Route path="survey" element = {<ListSurveyComponent company={false}/>}/>
-                <Route path=":id" element={<UserForm/>}/>
-                <Route path="history" element={<History company={false}/>}/>
+              <Route element={<RequireAuth allowedRoles={false} />}>
+                <Route  path = "user/*" element={<App/>}>
+                  <Route path="overview" element = {<CombinedComponent/>}/>
+                  <Route path="survey" element = {<ListSurveyComponent company={false}/>}/>
+                  <Route path=":id" element={<UserForm/>}/>
+                  <Route path="history" element={<History company={false}/>}/>
+                </Route>
               </Route>
+              
           </Routes>
-        </AuthProvider>
+        
           
     </BrowserRouter>
-    </CookiesProvider>
     
+    </CookiesProvider>
+    </AuthProvider>
   )
 }
 

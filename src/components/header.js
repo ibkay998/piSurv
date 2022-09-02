@@ -2,14 +2,15 @@ import { useState } from "react"
 import { Outlet, Link } from "react-router-dom";
 import {useCookie, useCookies} from 'react-cookie'
 import ApiService from "../routes/ApiService";
-
+import useAuth from '../hooks/useAuth'
 
 
 function Header(){
-    
+    const { auth, setAuth } = useAuth();
     
     const Logout=()=>{
         ApiService.LogoutUser()
+        setAuth({})
         console.log("you have been logged out")
     }
 
